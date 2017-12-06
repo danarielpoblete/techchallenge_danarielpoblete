@@ -4,7 +4,9 @@ target 'WeatherApp' do
   use_frameworks!
 
   pod 'RxSwift'
-  
+  pod 'Moya'
+  pod 'Moya-ObjectMapper/RxSwift'  
+
   target 'WeatherAppTests' do
     inherit! :search_paths
     # Pods for testing

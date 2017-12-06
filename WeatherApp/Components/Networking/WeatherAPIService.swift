@@ -27,7 +27,6 @@ public final class DarkSkyWeatherAPIService: WeatherAPIServiceProtocol {
         return provider.rx.request(.forecast(latitude: latitude, longitude: longitude))
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .filterSuccessfulStatusAndRedirectCodes()
-            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .mapObject(Forecast.self)
             .observeOn(MainScheduler.instance)
     }

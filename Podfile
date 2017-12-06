@@ -8,6 +8,7 @@ target 'WeatherApp' do
   pod 'Moya'
   pod 'Moya/RxSwift'
   pod 'Moya-ObjectMapper/RxSwift'  
+  pod 'PureLayout'
 
   target 'WeatherAppTests' do
     inherit! :search_paths

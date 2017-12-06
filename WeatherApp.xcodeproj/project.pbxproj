@@ -18,6 +18,7 @@
 		3AA0C3D11FD7FE2F00C8F816 /* ForecastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA0C3D01FD7FE2F00C8F816 /* ForecastData.swift */; };
 		3AD6208C1FD806A2001E276F /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD6208B1FD806A2001E276F /* Forecast.swift */; };
 		3AD620901FD8092B001E276F /* ForecastBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD6208F1FD8092B001E276F /* ForecastBlock.swift */; };
+		3AD620921FD81018001E276F /* ForecastMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD620911FD81018001E276F /* ForecastMappingTests.swift */; };
 		3AD620941FD816B0001E276F /* sample-dark-sky-forecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 3AD620931FD811CA001E276F /* sample-dark-sky-forecast.json */; };
 		8D7914E57D905D930BA0C012 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FC3B41110B338682269E3D1 /* Pods_WeatherApp.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		3AA0C3D01FD7FE2F00C8F816 /* ForecastData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastData.swift; sourceTree = "<group>"; };
 		3AD6208B1FD806A2001E276F /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		3AD6208F1FD8092B001E276F /* ForecastBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastBlock.swift; sourceTree = "<group>"; };
+		3AD620911FD81018001E276F /* ForecastMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastMappingTests.swift; sourceTree = "<group>"; };
 		3AD620931FD811CA001E276F /* sample-dark-sky-forecast.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "sample-dark-sky-forecast.json"; sourceTree = "<group>"; };
 		4FC3B41110B338682269E3D1 /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BADB839D285A3480B53806C /* Pods-WeatherAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAppTests/Pods-WeatherAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				3A4B32E31FD7EEFF00261246 /* WeatherAppTests.swift */,
+				3AD620911FD81018001E276F /* ForecastMappingTests.swift */,
 				3AD620931FD811CA001E276F /* sample-dark-sky-forecast.json */,
 				3A4B32E51FD7EEFF00261246 /* Info.plist */,
 			);
@@ -492,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A4B32E41FD7EEFF00261246 /* WeatherAppTests.swift in Sources */,
+				3AD620921FD81018001E276F /* ForecastMappingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

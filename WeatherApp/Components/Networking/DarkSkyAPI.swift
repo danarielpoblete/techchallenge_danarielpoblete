@@ -46,7 +46,16 @@ extension DarkSky: TargetType {
     
     public var sampleData: Data {
         switch self {
-        case .forecast: return "".data(using: String.Encoding.utf8)!
+        case .forecast:
+            guard let url = Bundle.main.url(forResource: "sample-dark-sky-forecast", withExtension: "json") else {
+                return Data()
+            }
+            
+            guard let jsonString = try? String(contentsOf: url) else {
+                return Data()
+            }
+            
+            return jsonString.data(using: String.Encoding.utf8)!
         }
     }
     

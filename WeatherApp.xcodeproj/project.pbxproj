@@ -15,6 +15,9 @@
 		3A4B32E41FD7EEFF00261246 /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B32E31FD7EEFF00261246 /* WeatherAppTests.swift */; };
 		3A4B32EF1FD7EEFF00261246 /* WeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B32EE1FD7EEFF00261246 /* WeatherAppUITests.swift */; };
 		3AA0C3CE1FD7F6B200C8F816 /* DarkSkyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA0C3CD1FD7F6B200C8F816 /* DarkSkyAPI.swift */; };
+		3AA0C3D11FD7FE2F00C8F816 /* ForecastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA0C3D01FD7FE2F00C8F816 /* ForecastData.swift */; };
+		3AD6208C1FD806A2001E276F /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD6208B1FD806A2001E276F /* Forecast.swift */; };
+		3AD620901FD8092B001E276F /* ForecastBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD6208F1FD8092B001E276F /* ForecastBlock.swift */; };
 		8D7914E57D905D930BA0C012 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FC3B41110B338682269E3D1 /* Pods_WeatherApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +53,9 @@
 		3A4B32EE1FD7EEFF00261246 /* WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITests.swift; sourceTree = "<group>"; };
 		3A4B32F01FD7EEFF00261246 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AA0C3CD1FD7F6B200C8F816 /* DarkSkyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyAPI.swift; sourceTree = "<group>"; };
+		3AA0C3D01FD7FE2F00C8F816 /* ForecastData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastData.swift; sourceTree = "<group>"; };
+		3AD6208B1FD806A2001E276F /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		3AD6208F1FD8092B001E276F /* ForecastBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastBlock.swift; sourceTree = "<group>"; };
 		4FC3B41110B338682269E3D1 /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BADB839D285A3480B53806C /* Pods-WeatherAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAppTests/Pods-WeatherAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A267B72B06570AA5EBD86800 /* Pods-WeatherAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAppUITests/Pods-WeatherAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 		3A4B32CD1FD7EEFF00261246 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				3AA0C3CF1FD7FE2300C8F816 /* Models */,
 				3AA0C3CB1FD7F69B00C8F816 /* Components */,
 				3A4B32CE1FD7EEFF00261246 /* AppDelegate.swift */,
 				3A4B32D51FD7EEFF00261246 /* Assets.xcassets */,
@@ -153,6 +160,16 @@
 				3AA0C3CD1FD7F6B200C8F816 /* DarkSkyAPI.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		3AA0C3CF1FD7FE2300C8F816 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3AD6208B1FD806A2001E276F /* Forecast.swift */,
+				3AD6208F1FD8092B001E276F /* ForecastBlock.swift */,
+				3AA0C3D01FD7FE2F00C8F816 /* ForecastData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		BB676420662CDA8FE30BD4FB /* Frameworks */ = {
@@ -458,8 +475,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AD6208C1FD806A2001E276F /* Forecast.swift in Sources */,
 				3AA0C3CE1FD7F6B200C8F816 /* DarkSkyAPI.swift in Sources */,
+				3AA0C3D11FD7FE2F00C8F816 /* ForecastData.swift in Sources */,
 				3A4B32CF1FD7EEFF00261246 /* AppDelegate.swift in Sources */,
+				3AD620901FD8092B001E276F /* ForecastBlock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

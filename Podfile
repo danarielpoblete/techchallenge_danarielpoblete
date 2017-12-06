@@ -12,11 +12,17 @@ target 'WeatherApp' do
 
   target 'WeatherAppTests' do
     inherit! :search_paths
+
+    pod 'RxBlocking'
+    
     # Pods for testing
   end
 
   target 'WeatherAppUITests' do
     inherit! :search_paths
+    
+    pod 'RxBlocking'
+ 
     # Pods for testing
   end
 

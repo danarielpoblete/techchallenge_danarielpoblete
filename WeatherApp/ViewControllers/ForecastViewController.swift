@@ -89,10 +89,5 @@ final class ForecastViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel.forecast
-            .drive(onNext: { forecast in
-                print(forecast)
-            })
-            .disposed(by: disposeBag)
     }
 }

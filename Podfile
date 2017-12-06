@@ -4,6 +4,7 @@ target 'WeatherApp' do
   use_frameworks!
 
   pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'Moya'
   pod 'Moya/RxSwift'
   pod 'Moya-ObjectMapper/RxSwift'  

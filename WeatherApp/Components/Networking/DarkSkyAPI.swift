@@ -17,11 +17,14 @@ extension DarkSky: TargetType {
     
     private static let apiKey = "260c12804b82e76707621c882506e92a"
     
-    public var baseURL: URL { return URL(string: "https://api.darksky.net")! }
+    public var baseURL: URL {
+        return URL(string: "https://api.darksky.net")!
+    }
     
     public var path: String {
         switch self {
-        case .forecast(let latitude, let longitude): return "/forecast/\(type(of: self).apiKey)/\(latitude),\(longitude)"
+        case .forecast(let latitude, let longitude):
+            return "/forecast/\(type(of: self).apiKey)/\(latitude),\(longitude)"
         }
     }
     

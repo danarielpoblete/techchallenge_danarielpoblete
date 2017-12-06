@@ -17,12 +17,16 @@ protocol WeatherAPIServiceProtocol {
 
 public final class DarkSkyWeatherAPIService: WeatherAPIServiceProtocol {
     
+    // MARK: - Properties
+    // Dependencies
     private let provider: MoyaProvider<DarkSky>
     
+    // MARK: - Init
     init(provider: MoyaProvider<DarkSky>) {
         self.provider = provider
     }
     
+    // MARK: - Public Methods
     public func fetchForecast(latitude: Double, longitude: Double) -> Single<Forecast> {
         return provider.rx.request(.forecast(latitude: latitude, longitude: longitude))
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))

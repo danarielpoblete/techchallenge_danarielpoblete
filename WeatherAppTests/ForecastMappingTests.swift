@@ -10,7 +10,7 @@ import XCTest
 import ObjectMapper
 @testable import WeatherApp
 
-class ForecastMappingTests: XCTestCase {
+final class ForecastMappingTests: XCTestCase {
     
     private var forecast: Forecast!
     private var sampleDataJSONString: String!

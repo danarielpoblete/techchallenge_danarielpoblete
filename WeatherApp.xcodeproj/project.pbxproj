@@ -124,6 +124,7 @@
 		3A4B32CD1FD7EEFF00261246 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				3AD620971FD8200F001E276F /* ViewModels */,
 				3AA0C3CF1FD7FE2300C8F816 /* Models */,
 				3AA0C3CB1FD7F69B00C8F816 /* Components */,
 				3A4B32CE1FD7EEFF00261246 /* AppDelegate.swift */,
@@ -179,6 +180,13 @@
 				3AA0C3D01FD7FE2F00C8F816 /* ForecastData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3AD620971FD8200F001E276F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		BB676420662CDA8FE30BD4FB /* Frameworks */ = {

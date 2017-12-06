@@ -33,6 +33,8 @@ class ForecastMappingTests: XCTestCase {
     }
     
     override func tearDown() {
+        forecast = nil
+        sampleDataJSONString = nil
         
         super.tearDown()
     }

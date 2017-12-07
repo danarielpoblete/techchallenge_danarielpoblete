@@ -1,3 +1,4 @@
+
 //
 //  Services.swift
 //  WeatherApp
@@ -14,12 +15,7 @@ public struct Services {
     public let weatherAPIService: WeatherAPIServiceProtocol
     
     public init() {
-        let stubClosure: MoyaProvider<DarkSky>.StubClosure = { target in
-            switch target {
-            case .forecast: return .immediate
-            }
-        }
-        let provider = MoyaProvider<DarkSky>(stubClosure: stubClosure)
+        let provider = MoyaProvider<DarkSky>()
         self.weatherAPIService = DarkSkyWeatherAPIService(provider: provider)
     }
     

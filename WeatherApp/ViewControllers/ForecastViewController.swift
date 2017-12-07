@@ -24,6 +24,7 @@ final class ForecastViewController: BaseViewController {
     // Views
     public let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     public let tableView = UITableView()
+    public let backgroundImageView = UIImageView()
     
     // Helpers
     private let disposeBag = DisposeBag()
@@ -62,7 +63,10 @@ final class ForecastViewController: BaseViewController {
     }
     
     private func setupViews() {
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
+        
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.backgroundColor = .clear
         
         activityIndicator.hidesWhenStopped = true
         
@@ -76,9 +80,11 @@ final class ForecastViewController: BaseViewController {
     }
     
     private func setupConstraints() {
+        view.addSubview(backgroundImageView)
         view.addSubview(tableView)
         view.addSubview(activityIndicator)
         
+        backgroundImageView.autoPinEdgesToSuperviewEdges()
         tableView.autoPinEdgesToSuperviewEdges()
         activityIndicator.autoCenterInSuperview()
     }
@@ -168,6 +174,22 @@ final class ForecastViewController: BaseViewController {
                 case .current: break
                 case .daily(let forecastData): self.viewModel.showForecastData(forecastData)
                 }
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.forecast
+            .map {
+                $0?.current?.iconName
+            }
+            .filter {
+                $0 != nil
+            }
+            .map {
+                $0!
+            }
+            .distinctUntilChanged()
+            .drive(onNext: { [unowned self] iconName in
+                self.backgroundImageView.image = UIImage(named: iconName + "-bg")
             })
             .disposed(by: disposeBag)
     }

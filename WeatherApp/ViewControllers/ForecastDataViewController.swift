@@ -15,14 +15,14 @@ import PureLayout
 
 final class ForecastDataViewController: BaseViewController {
     
-    enum Cell {
-        case current(forecastData: ForecastData?)
-        case daily(forecastData: ForecastData)
+    struct LabelValuePair {
+        let label: String
+        let value: String
     }
     
     // MARK: - Properties
     // Views
-    public let tableView = UITableView()
+    public let tableView = UITableView(frame: CGRect.zero, style: .grouped)
     
     // Helpers
     private let disposeBag = DisposeBag()
@@ -58,11 +58,7 @@ final class ForecastDataViewController: BaseViewController {
         view.backgroundColor = .white
         
         // Table View
-        tableView.register(CurrentForecastTableViewCell.self, forCellReuseIdentifier: "CurrentForecastTableViewCell")
-        tableView.register(DailyForecastTableViewCell.self, forCellReuseIdentifier: "DailyForecastTableViewCell")
-        tableView.backgroundColor = .clear
-        tableView.separatorColor = .clear
-        tableView.tableFooterView = UIView()
+        tableView.register(Value1TableViewCell.self, forCellReuseIdentifier: "Value1TableViewCell")
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
     }
@@ -79,5 +75,52 @@ final class ForecastDataViewController: BaseViewController {
                 self.navigationController?.setNavigationBarHidden(false, animated: animated)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.forecastData
+            .map {
+                DateFormatter.localizedString(from: $0.time, dateStyle: DateFormatter.Style.full, timeStyle: DateFormatter.Style.none)
+            }
+            .drive(self.rx.title)
+            .disposed(by: disposeBag)
+        
+        // Configure each cell of the tableview
+        let dateFormatter = DateFormatter()
+        
+        let tableViewDataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LabelValuePair>>(configureCell: { dataSource, tableView, indexPath, item in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Value1TableViewCell", for: indexPath)
+            
+            cell.textLabel?.text = item.label
+            cell.detailTextLabel?.text = item.value
+            cell.selectionStyle = .none
+            cell.accessoryType = .none
+            
+            return cell
+
+        })
+        
+        // Fill in table view with cells + data when forecast data comes in
+        let forecastData = viewModel.forecastData
+        let location = viewModel.location
+        
+        Driver.combineLatest(forecastData, location) { ($0, $1) }
+            .map { forecastData, location -> [SectionModel<String, LabelValuePair>] in
+                
+                // Map forecast data into cell data
+                let cells: [LabelValuePair] = [
+                    LabelValuePair(label: "Temperature".localizedCapitalized, value: "\(Int(forecastData.temperature?.toCelsius() ?? 0))°"),
+                    LabelValuePair(label: "Temperature high".localizedCapitalized, value: "\(Int(forecastData.temperatureHigh?.toCelsius() ?? 0))°"),
+                    LabelValuePair(label: "Temperature low".localizedCapitalized, value: "\(Int(forecastData.temperatureLow?.toCelsius() ?? 0))°"),
+                    LabelValuePair(label: "Feels like".localizedCapitalized, value: "\(Int(forecastData.apparentTemperature?.toCelsius() ?? 0))°"),
+                    LabelValuePair(label: "Chance of rain".localizedCapitalized, value: "\(Int(forecastData.precipitationProbability?.toCelsius() ?? 0))°"),
+                ]
+                return [SectionModel(model: "Data", items: cells)]
+            }
+            .drive(tableView.rx.items(dataSource: tableViewDataSource))
+            .disposed(by: disposeBag)
+        
+        
+        tableViewDataSource.titleForHeaderInSection = { dataSource, index in
+            return dataSource.sectionModels[index].model
+        }
     }
 }

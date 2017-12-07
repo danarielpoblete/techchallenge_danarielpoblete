@@ -70,7 +70,7 @@ public final class ForecastViewModel: ForecastViewModelProtocol {
     }
     
     public func showForecastData(_ forecastData: ForecastData) {
-        _action.onNext(.showForecastData(forecastData: forecastData))
+        _action.onNext(.showForecastData(forecastData: forecastData, location: _location.value ?? ""))
     }
     
     // MARK: - Private Methods
@@ -119,6 +119,6 @@ public final class ForecastViewModel: ForecastViewModelProtocol {
     
     enum Action {
         case fetchForecast
-        case showForecastData(forecastData: ForecastData)
+        case showForecastData(forecastData: ForecastData, location: String)
     }
 }

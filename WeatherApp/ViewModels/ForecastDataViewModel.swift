@@ -12,6 +12,7 @@ import RxCocoa
 
 protocol ForecastDataViewModelProtocol {
     var forecastData: Driver<ForecastData> { get }
+    var location: Driver<String> { get }
 }
 
 public final class ForecastDataViewModel: ForecastDataViewModelProtocol {
@@ -19,9 +20,11 @@ public final class ForecastDataViewModel: ForecastDataViewModelProtocol {
     // MARK: - Properties
     // Outputs
     var forecastData: Driver<ForecastData>
+    var location: Driver<String>
     
     // MARK: - Init
-    init(forecastData: ForecastData) {
+    init(forecastData: ForecastData, location: String) {
         self.forecastData = Driver.just(forecastData)
+        self.location = Driver.just(location)
     }
 }

@@ -56,15 +56,15 @@ public final class AppCoordinator: Coordinator {
             .subscribe(onNext: { [unowned self] action in
                 switch action {
                 case .fetchForecast: break
-                case .showForecastData(let forecastData):
-                    self.showForecastDataViewController(forecastData: forecastData)
+                case .showForecastData(let forecastData, let location):
+                    self.showForecastDataViewController(forecastData: forecastData, location: location)
                 }
             })
             .disposed(by: disposeBag)
     }
 
-    private func showForecastDataViewController(forecastData: ForecastData) {
-        let viewModel = ForecastDataViewModel(forecastData: forecastData)
+    private func showForecastDataViewController(forecastData: ForecastData, location: String) {
+        let viewModel = ForecastDataViewModel(forecastData: forecastData, location: location)
         let viewController = ForecastDataViewController(viewModel: viewModel)
         self.navigationController.pushViewController(viewController, animated: true)
     }

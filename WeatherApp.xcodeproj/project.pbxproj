@@ -27,6 +27,7 @@
 		3A4B32D61FD7EEFF00261246 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A4B32D51FD7EEFF00261246 /* Assets.xcassets */; };
 		3A4B32D91FD7EEFF00261246 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A4B32D71FD7EEFF00261246 /* LaunchScreen.storyboard */; };
 		3A4B32EF1FD7EEFF00261246 /* WeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B32EE1FD7EEFF00261246 /* WeatherAppUITests.swift */; };
+		3A7CE4F91FD9EF1000EDF411 /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CE4F81FD9EF1000EDF411 /* SummaryTableViewCell.swift */; };
 		3A82A0401FD9CAE300E4C9CE /* WeatherBackgrounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A82A03F1FD9CAE300E4C9CE /* WeatherBackgrounds.xcassets */; };
 		3A82A0421FD9DDC500E4C9CE /* Value1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82A0411FD9DDC500E4C9CE /* Value1TableViewCell.swift */; };
 		3AA0C3CE1FD7F6B200C8F816 /* DarkSkyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA0C3CD1FD7F6B200C8F816 /* DarkSkyAPI.swift */; };
@@ -83,6 +84,7 @@
 		3A4B32EA1FD7EEFF00261246 /* WeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4B32EE1FD7EEFF00261246 /* WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITests.swift; sourceTree = "<group>"; };
 		3A4B32F01FD7EEFF00261246 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A7CE4F81FD9EF1000EDF411 /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
 		3A82A03F1FD9CAE300E4C9CE /* WeatherBackgrounds.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WeatherBackgrounds.xcassets; sourceTree = "<group>"; };
 		3A82A0411FD9DDC500E4C9CE /* Value1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value1TableViewCell.swift; sourceTree = "<group>"; };
 		3AA0C3CD1FD7F6B200C8F816 /* DarkSkyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyAPI.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				3A2E51D41FD925380032D412 /* CurrentForecastTableViewCell.swift */,
 				3A2E51D61FD92E6E0032D412 /* DailyForecastTableViewCell.swift */,
 				3A82A0411FD9DDC500E4C9CE /* Value1TableViewCell.swift */,
+				3A7CE4F81FD9EF1000EDF411 /* SummaryTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				3A2E51D91FD94B3D0032D412 /* ForecastDataViewModel.swift in Sources */,
 				3A2E51EB1FD9B53B0032D412 /* Services.swift in Sources */,
 				3A2E51D51FD925380032D412 /* CurrentForecastTableViewCell.swift in Sources */,
+				3A7CE4F91FD9EF1000EDF411 /* SummaryTableViewCell.swift in Sources */,
 				3AD620901FD8092B001E276F /* ForecastBlock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

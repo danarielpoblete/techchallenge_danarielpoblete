@@ -11,7 +11,7 @@ import RxSwift
 import Moya
 import Moya_ObjectMapper
 
-protocol WeatherAPIServiceProtocol {
+public protocol WeatherAPIServiceProtocol {
     func fetchForecast(latitude: Double, longitude: Double) -> Single<Forecast>
 }
 

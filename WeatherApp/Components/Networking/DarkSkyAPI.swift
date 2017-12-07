@@ -9,11 +9,8 @@
 import Foundation
 import Moya
 
-public enum DarkSky {
+public enum DarkSky: TargetType {
     case forecast(latitude: Double, longitude: Double)
-}
-
-extension DarkSky: TargetType {
     
     private static let apiKey = "260c12804b82e76707621c882506e92a"
     

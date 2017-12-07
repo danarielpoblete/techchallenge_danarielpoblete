@@ -16,7 +16,7 @@ import PureLayout
 final class ForecastViewController: BaseViewController {
     
     enum Cell {
-        case current(forecastData: ForecastData?)
+        case current(forecastData: ForecastData?, location: String?)
         case daily(forecastData: ForecastData)
     }
     
@@ -122,10 +122,10 @@ final class ForecastViewController: BaseViewController {
         
         let tableViewDataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Cell>>(configureCell: { dataSource, tableView, indexPath, item in
             switch item {
-            case .current(let forecastData):
+            case .current(let forecastData, let location):
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CurrentForecastTableViewCell", for: indexPath) as! CurrentForecastTableViewCell
                 
-                cell.setupCell(forecastData)
+                cell.setupCell(forecastData, location: location)
                 
                 cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
                 cell.selectionStyle = .none
@@ -145,16 +145,20 @@ final class ForecastViewController: BaseViewController {
         })
         
         // Fill in table view with cells + data when a forecast comes in
-        viewModel.forecast
+        let forecast = viewModel.forecast
             .filter {
                 $0 != nil
             }
             .map {
                 $0!
             }
-            .map { forecast -> [SectionModel<String, Cell>] in
+            
+        let location = viewModel.location
+        
+        Driver.combineLatest(forecast, location) { ($0, $1) }
+            .map { forecast, location -> [SectionModel<String, Cell>] in
                 let currentSection: SectionModel<String, Cell> = {
-                    let cells = [Cell.current(forecastData: forecast.current)]
+                    let cells = [Cell.current(forecastData: forecast.current, location: location)]
                     return SectionModel(model: "Current Forecast", items: cells)
                 }()
                 

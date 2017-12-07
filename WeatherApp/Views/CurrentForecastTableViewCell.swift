@@ -79,14 +79,8 @@ final class CurrentForecastTableViewCell: UITableViewCell {
     }
     
     // MARK: - Public Methods
-    func setupCell(_ forecastData: ForecastData?) {
-        locationLabel.text = {
-            guard let _ = forecastData else {
-                return "-"
-            }
-            
-            return "Sydney"
-        }()
+    func setupCell(_ forecastData: ForecastData?, location: String?) {
+        locationLabel.text = location
         
         summaryLabel.text = {
             guard let forecastData = forecastData else {

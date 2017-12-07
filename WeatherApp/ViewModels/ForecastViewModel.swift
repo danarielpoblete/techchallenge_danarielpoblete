@@ -20,6 +20,7 @@ enum ForecastViewModelFetchStatus {
 protocol ForecastViewModelProtocol {
     var forecast: Driver<Forecast?> { get }
     var fetchForecastStatus: Driver<ForecastViewModelFetchStatus> { get }
+    var location: Driver<String?> { get }
     
     func fetchForecast()
     func showForecastData(_ forecastData: ForecastData)
@@ -41,10 +42,15 @@ public final class ForecastViewModel: ForecastViewModelProtocol {
         return _action.asObservable()
     }
     
+    var location: Driver<String?> {
+        return _location.asDriver()
+    }
+    
     // Helpers
     private let _forecast = PublishSubject<Forecast?>()
     private let _fetchForecastStatus = Variable<ForecastViewModelFetchStatus>(.idle)
     private let _action = PublishSubject<Action>()
+    private let _location = Variable<String?>("Sydney")
     
     private let disposeBag = DisposeBag()
     
@@ -73,6 +79,7 @@ public final class ForecastViewModel: ForecastViewModelProtocol {
         let latitude = 33.8650
         let longitude = 151.2094
         
+        // Fetch forecast, side-effect of setting forecast status to show loading activity
         action
             .asObservable()
             .throttle(2, latest: false, scheduler: MainScheduler.instance)

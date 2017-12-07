@@ -56,7 +56,7 @@ final class DailyForecastTableViewCell: UITableViewCell {
         temperatureHighLabel.textColor = .white
         temperatureHighLabel.textAlignment = .right
         
-        temperatureLowLabel.textColor = .lightGray
+        temperatureLowLabel.textColor = UIColor(white: 216.0/255.0, alpha: 1)
         temperatureLowLabel.textAlignment = .right
         
         // Image

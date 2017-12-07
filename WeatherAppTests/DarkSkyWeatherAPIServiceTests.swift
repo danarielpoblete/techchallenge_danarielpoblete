@@ -31,7 +31,8 @@ final class DarkSkyWeatherAPIServiceTests: XCTestCase {
         super.tearDown()
     }
     
-    func testThatFetchingForecast_WithLatitudeAndLongitude_ShouldReturnForecastOnSuccess() {
+    func testThatFetchingForecast_WithLatitudeAndLongitude_ShouldReturnForecast() {
+        // Given
         let stubClosure: MoyaProvider<DarkSky>.StubClosure = { target in
             switch target {
             case .forecast: return .immediate
@@ -40,14 +41,17 @@ final class DarkSkyWeatherAPIServiceTests: XCTestCase {
         let provider = MoyaProvider<DarkSky>(stubClosure: stubClosure)
         weatherAPIService = DarkSkyWeatherAPIService(provider: provider)
         
-        let result = try? weatherAPIService.fetchForecast(latitude: 1.0, longitude: 1.0)
+        // When
+        let result = try! weatherAPIService.fetchForecast(latitude: 1.0, longitude: 1.0)
             .toBlocking()
-            .toArray()
+            .single()
         
-        XCTAssertEqual(1, result?.count ?? 0)
+        // Then
+        XCTAssertNotNil(result)
     }
     
-    func testThatFetchingForecast_WithLatitudeAndLongitude_ShouldReturnError() {
+    func testThatFetchingForecast_WithFailedNetworkRequest_ShouldThrowError() {
+        // Given
         let stubClosure: MoyaProvider<DarkSky>.StubClosure = { target in
             switch target {
             case .forecast: return .immediate
@@ -61,10 +65,10 @@ final class DarkSkyWeatherAPIServiceTests: XCTestCase {
         
         weatherAPIService = DarkSkyWeatherAPIService(provider: provider)
         
-        let result = try? weatherAPIService.fetchForecast(latitude: 1.0, longitude: 1.0)
-            .toBlocking()
-            .toArray()
+        // When
+        let fetchForecast = weatherAPIService.fetchForecast(latitude: 1.0, longitude: 1.0)
         
-        XCTAssertNil(result)
+        // Then
+        XCTAssertThrowsError(try fetchForecast.toBlocking().toArray())
     }
 }

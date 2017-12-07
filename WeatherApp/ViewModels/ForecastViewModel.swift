@@ -22,6 +22,7 @@ protocol ForecastViewModelProtocol {
     var fetchForecastStatus: Driver<ForecastViewModelFetchStatus> { get }
     
     func fetchForecast()
+    func showForecastData(_ forecastData: ForecastData)
 }
 
 public final class ForecastViewModel: ForecastViewModelProtocol {
@@ -62,8 +63,13 @@ public final class ForecastViewModel: ForecastViewModelProtocol {
         _action.onNext(.fetchForecast)
     }
     
+    public func showForecastData(_ forecastData: ForecastData) {
+        _action.onNext(.showForecastData(forecastData: forecastData))
+    }
+    
     // MARK: - Private Methods
     private func setupBindings() {
+        // Sydney
         let latitude = 33.8650
         let longitude = 151.2094
         
@@ -71,8 +77,12 @@ public final class ForecastViewModel: ForecastViewModelProtocol {
             .asObservable()
             .throttle(2, latest: false, scheduler: MainScheduler.instance)
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .filter {
-                $0 == .fetchForecast
+            .filter { action in
+                guard case .fetchForecast = action else {
+                    return false
+                }
+                
+                return true
             }
             .map { _ in
                 ()
@@ -102,5 +112,6 @@ public final class ForecastViewModel: ForecastViewModelProtocol {
     
     enum Action {
         case fetchForecast
+        case showForecastData(forecastData: ForecastData)
     }
 }

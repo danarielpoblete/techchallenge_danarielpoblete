@@ -11,7 +11,6 @@ import ObjectMapper
 
 public struct Forecast {
     let current: ForecastData?
-    let nextHours: ForecastBlock?
     let nextDays: ForecastBlock?
 }
 
@@ -19,13 +18,11 @@ extension Forecast: ImmutableMappable {
     
     public init(map: Map) throws {
         current = try? map.value("currently")
-        nextHours = try? map.value("hourly")
         nextDays = try? map.value("daily")
     }
     
     public mutating func mapping(map: Map) {
         current >>> map["currently"]
-        nextHours >>> map["hourly"]
         nextDays >>> map["daily"]
     }
 }

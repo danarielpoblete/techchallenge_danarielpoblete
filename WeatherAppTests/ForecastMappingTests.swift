@@ -41,12 +41,22 @@ final class ForecastMappingTests: XCTestCase {
     
     func testThatMappingForecast_WithDarkSkySampleData_ShouldHaveAllForecastBlocks() {
         XCTAssertNotNil(forecast.current)
-        XCTAssertNotNil(forecast.nextHours)
         XCTAssertNotNil(forecast.nextDays)
     }
     
-    func testThatMappingForecast_WithDarkSkySampleData_ShouldHaveCorrectCurrentBlockData() {
-        
+    func testThatMappingForecast_WithDarkSkySampleData_ShouldHaveCorrectCurrentData() {
+        XCTAssertEqual("Clear", forecast.current?.summary)
+        XCTAssertEqual("clear-night", forecast.current?.iconName)
+        XCTAssertEqual(45.98, forecast.current?.temperature)
+        XCTAssertNil(forecast.current?.temperatureHigh)
+        XCTAssertNil(forecast.current?.temperatureLow)
+        XCTAssertEqual(44.72, forecast.current?.apparentTemperature)
+        XCTAssertEqual(0, forecast.current?.precipitationProbability)
     }
     
+    func testThatMappingForecast_WithDarkSkySampleData_ShouldHaveCorrectDailyBlock() {
+        XCTAssertNotNil(forecast.nextDays?.summary)
+        XCTAssertNotNil(forecast.nextDays?.iconName)
+        XCTAssertEqual(8, forecast.nextDays?.data.count)
+    }
 }

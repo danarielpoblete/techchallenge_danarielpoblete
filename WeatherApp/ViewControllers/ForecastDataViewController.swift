@@ -22,7 +22,6 @@ final class ForecastDataViewController: BaseViewController {
     
     // MARK: - Properties
     // Views
-    public let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     public let tableView = UITableView()
     
     // Helpers
@@ -56,9 +55,7 @@ final class ForecastDataViewController: BaseViewController {
     }
     
     private func setupViews() {
-        view.backgroundColor = .blue
-        
-        activityIndicator.hidesWhenStopped = true
+        view.backgroundColor = .white
         
         // Table View
         tableView.register(CurrentForecastTableViewCell.self, forCellReuseIdentifier: "CurrentForecastTableViewCell")
@@ -72,10 +69,8 @@ final class ForecastDataViewController: BaseViewController {
     
     private func setupConstraints() {
         view.addSubview(tableView)
-        view.addSubview(activityIndicator)
         
         tableView.autoPinEdgesToSuperviewEdges()
-        activityIndicator.autoCenterInSuperview()
     }
     
     private func setupBindings() {

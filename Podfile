@@ -5,6 +5,7 @@ target 'WeatherApp' do
 
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxDataSources'
   pod 'Moya'
   pod 'Moya/RxSwift'
   pod 'Moya-ObjectMapper/RxSwift'  

@@ -122,9 +122,9 @@ final class ForecastDataViewController: BaseViewController {
                 
                 // Map forecast data into cell data
                 let labelValuePairs: [LabelValuePair] = [
-                    LabelValuePair(label: "Temperature High", value: "\(Int(forecastData.temperatureHigh?.toCelsius() ?? 0))°"),
-                    LabelValuePair(label: "Temperature Low", value: "\(Int(forecastData.temperatureLow?.toCelsius() ?? 0))°"),
-                    LabelValuePair(label: "Chance of Rain", value: "\(Int(forecastData.precipitationProbability ?? 0))%"),
+                    LabelValuePair(label: "Temperature High", value: "\(Int(forecastData.temperatureHigh?.toCelsius() ?? 0))°C"),
+                    LabelValuePair(label: "Temperature Low", value: "\(Int(forecastData.temperatureLow?.toCelsius() ?? 0))°C"),
+                    LabelValuePair(label: "Chance of Rain", value: "\(Int((forecastData.precipitationProbability ?? 0) * 100))%"),
                 ]
                 let fieldCells = labelValuePairs
                     .map {

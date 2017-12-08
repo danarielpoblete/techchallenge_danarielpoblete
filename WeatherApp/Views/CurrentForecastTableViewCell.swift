@@ -95,7 +95,7 @@ final class CurrentForecastTableViewCell: UITableViewCell {
                 return "--"
             }
             
-            return "\(Int(temperature.toCelsius()))°"
+            return "\(Int(temperature.toCelsius()))°C"
         }()
     }
 }

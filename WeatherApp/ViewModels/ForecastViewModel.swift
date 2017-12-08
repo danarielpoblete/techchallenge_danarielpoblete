@@ -76,7 +76,7 @@ public final class ForecastViewModel: ForecastViewModelProtocol {
     // MARK: - Private Methods
     private func setupBindings() {
         // Sydney
-        let latitude = 33.8650
+        let latitude = -33.8650
         let longitude = 151.2094
         
         // Fetch forecast, side-effect of setting forecast status to show loading activity

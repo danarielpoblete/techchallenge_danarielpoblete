@@ -39,3 +39,9 @@ A functional reactive programming library used along with its other helper libra
 #### PureLayout
 
 Makes working with Autolayout through code simpler to read.
+
+## Assets
+
+Background images were taken from [Pixabay](https://pixabay.com/)
+
+Weather icons were taken from [Icons8](https://pixabay.com/)

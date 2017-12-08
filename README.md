@@ -20,6 +20,10 @@ MVVM in iOS can be done by using KVO but using a [functional reactive programmin
 
 To better the separation of concerns, the coordinator pattern is used to manage the display of the view controllers. Rather than view controllers calling one another directly, the coordinator allows better separation between them so that view controllers can just focus on displaying the UI while the coordinator is the one directing which view controllers to show the user.
 
+### UI Design
+
+The app UI is inspired by the weather app. Far from the many features found in the original app, just close in layout and general look.
+
 ## Dependencies
 
 This project manages it's dependencies using CocoaPods
